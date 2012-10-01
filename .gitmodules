@@ -1,0 +1,3 @@
+[submodule "X11UtilizableUtils"]
+	path = X11UtilizableUtils
+	url = git@github.com:doomrobo/X11UtilizableUtils.git
