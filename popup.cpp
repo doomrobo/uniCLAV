@@ -245,17 +245,17 @@ void Popup::buttonHandler(void) {
 	std::cout << "Unicode string: " << uni_str << std::endl;
 
 	Display *dis = XOpenDisplay(0);
-	if (dis == NULL) {
-		hide();
+	if (dis == NULL)
 		return;
-	}
 
 	Window root = XDefaultRootWindow(dis);
 
 
 	Window focus;
 	int revert;
-	XGetInputFocus(dis, &focus, &revert);
+	do {
+		XGetInputFocus(dis, &focus, &revert);
+	} while (focus == 1);
 
 	KeySym uni_keysym = XStringToKeysym(uni_str);
 	KeySym syms[5] = {uni_keysym, uni_keysym, uni_keysym, uni_keysym, uni_keysym};
